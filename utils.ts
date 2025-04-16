@@ -11,7 +11,7 @@ export function getFormattedSidebar() {
 
 export const findGuideParamsPrompt = `
     This is the path to the technical documentation to create actions from.
-    To get the steps list, you need to pass the guideLink to the getStepsList tool.
+    To get the steps list, you need to pass the guideLink to the BuildOnBase getGuide tool.
     From the user prompt, find the most relevant guide from the sidebar of the docs website.
     The sidebar list can be found here:
     ${getFormattedSidebar()}
@@ -249,3 +249,5 @@ export function ConnectAndSIWE() {
   );
 }
 `;
+
+

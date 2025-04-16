@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { getGuideParams, testAgentResponseParams } from "./params.js";
+import { getGuideParams } from "./params.js";
 import { z } from "zod";
 
 export const getGuide = async ({
@@ -45,46 +45,6 @@ export const getGuide = async ({
         {
           type: "text" as const,
           text: finalResult,
-        },
-      ],
-    };
-  } catch (err) {
-    const error = err as Error;
-    console.error("Error processing guide:", error.message);
-    return {
-      content: [
-        {
-          type: "text" as const,
-          text: `Error: ${error.message}`,
-        },
-      ],
-    };
-  }
-};
-
-export const testAgentResponse = async ({
-  code,
-}: z.infer<typeof testAgentResponseParams>) => {
-  console.log("Received request for code:", code);
-  try {
-    const client = new OpenAI();
-    const result = await client.responses.create({
-      model: "gpt-4o-mini",
-      input: [
-        {
-          role: "developer",
-          content: "test this code and return the results:\n\n" + code,
-        },
-      ],
-    });
-    const actions = result.output_text;
-    console.log("Successfully processed code");
-
-    return {
-      content: [
-        {
-          type: "text" as const,
-          text: actions,
         },
       ],
     };

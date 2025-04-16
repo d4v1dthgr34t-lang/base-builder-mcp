@@ -1,8 +1,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import "dotenv/config";
-import { getGuide, testAgentResponse } from "./tools.js";
-import { getGuideParams, testAgentResponseParams } from "./params.js";
+import { getGuide} from "./tools.js";
+import { getGuideParams } from "./params.js";
 import { fetchAndUpdateSidebar } from "./sidebar.js";
 
 // Initialize the server
@@ -20,13 +20,5 @@ server.tool(
   getGuideParams.shape,
   getGuide
 );
-
-server.tool(
-  "testAgentResponse",
-  "Test the response of an agent",
-  testAgentResponseParams.shape,
-  testAgentResponse
-);
-
 const transport = new StdioServerTransport();
 server.connect(transport);
