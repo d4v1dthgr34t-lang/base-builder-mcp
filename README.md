@@ -6,7 +6,7 @@ In this alpha release, the server contains an implementation of [Base Docs](http
 
 Follow the instructions below to use it 👇
 
-## Build the server
+## Steps to Build and Add your MCP server
 
 First, let's build the server:
 
@@ -30,37 +30,22 @@ npm install
 npx tsc
 ```
 
-## Add to Cursor agent
+- You can now add the server to Claude or Cursor (Project Only or Global):
 
-### Build and Configure
-
-To add this MCP to your Cursor agent, **make sure your server is built** then add the following config to your project as shown in the cursor [documentation](https://docs.cursor.com/context/model-context-protocol):
-
-```json
-{
-    "mcpServers": {
-      "base-builder-mcp": {
-        "command": "node",
-        "args": ["/PATH_WHERE_REPO_IS_CLONED/base-builder-mcp/build/index.js"],
-        "env": {
-          "OPENAI_API_KEY": "" //OPENAI KEY IS OPTIONAL BUT RECOMENDED
-        },
-        "disabled": false,
-        "autoApprove": []
-      }
-    }
-  }
+```bash
+npm run setup:cursor
 ```
 
-⚠️ **MAKE SURE TO UPDATE `PATH_WHERE_REPO_IS_CLONED` ABOVE TO THE CORRECT PATH OF YOUR CLONED REPO DIRECTORY** ⚠️
-
-To add the MCP server to your project configuration, you need to create a json file at `.cursor/mcp.json`.
-
-To add the MCP server to your global configuration, you need to create a json file at `\~/.cursor/mcp.json`.
+```bash
+npm run setup:claude
+```
 
 *✅ OPENAI Key is optional but recommended. It allows the guide to be reviewed and digested by another LLM to create a json file of the guide instead of feeding raw guide text to your agent.*
 
-### Add to Cursor Rules
+Note: If you are facing issues with the last step (adding the server), you can check out [MCP documentation](https://modelcontextprotocol.io/quickstart/user) for Claude Desktop or [Cursor Docs](https://docs.cursor.com/context/model-context-protocol) for your Cursor IDE agent
+
+
+## Cursor Rules (Recommended)
 
 Add the following to your Cursor rules by going to the command palette (Cmd/Ctrl + Shift + P) and selecting > Cursor Settings > Rules:
 
@@ -75,32 +60,6 @@ Add the following to your Cursor rules by going to the command palette (Cmd/Ctrl
   </TOOLS>
 </MCP_USE_GUIDELINE>
 ```
-
-## Add to Claude Desktop
-
-If you want to use Base Docs MCP on your Claude Desktop App, make sure your server is built, then you can add the following config to filesystem as detailed in the Claude [MCP documentation](https://modelcontextprotocol.io/quickstart/user):
-
-```json
-{
-    "mcpServers": {
-      "base-builder-mcp": {
-        "command": "node",
-        "args": ["/PATH_WHERE_REPO_IS_CLONED/base-builder-mcp/build/index.js"],
-        "env": {
-          "OPENAI_API_KEY": "" //OPENAI KEY IS OPTIONAL BUT RECOMENDED
-        },
-        "disabled": false,
-        "autoApprove": []
-      }
-    }
-  }
-```
-This config should be added to the following paths:
-
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-
-*✅ OPENAI Key is optional but recommended. It allows the guide to be reviewed and digested by another LLM to create a json file of the guide instead of feeding raw guide text to your agent.*
 
 ## Expected Result
 
