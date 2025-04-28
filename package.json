@@ -5,7 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.ts"
+    "start": "node index.ts",
+    "setup:cursor": "node build/scripts/setup-cursor.js",
+    "setup:claude": "node build/scripts/setup-claude.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
     "dotenv": "^16.4.7",
+    "inquirer": "^12.6.0",
     "openai": "^4.90.0",
     "zod": "^3.24.2"
   },
