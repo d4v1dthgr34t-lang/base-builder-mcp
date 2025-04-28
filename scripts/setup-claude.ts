@@ -59,6 +59,14 @@ function getMcpEntry(openaiKey: string): any {
   };
 }
 
+function writeEnvFile(openaiKey: string) {
+  const envPath = path.join(process.cwd(), ".env");
+  if (!fs.existsSync(envPath) && openaiKey) {
+    fs.writeFileSync(envPath, `OPENAI_API_KEY=${openaiKey}\n`);
+    console.log(`✅ Created .env file with your OpenAI API key.`);
+  }
+}
+
 async function main() {
   let openaiKey = process.env.OPENAI_API_KEY || "";
   if (!openaiKey) {
@@ -70,6 +78,7 @@ async function main() {
       },
     ]);
     openaiKey = key;
+    writeEnvFile(openaiKey);
   }
 
   const mcpEntry = getMcpEntry(openaiKey);
