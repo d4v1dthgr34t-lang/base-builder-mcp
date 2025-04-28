@@ -17,7 +17,7 @@ git clone https://github.com/youssefea/base-builder-mcp
 cd base-builder-mcp
 ```
 
-- (Optional) Add an OpenAI key to your environment variables
+- (Optional but Recommended) Add an OpenAI key to your environment variables
 
 ```bash
 echo "OPENAI_API_KEY=your_api_key_here" >> .env
@@ -40,9 +40,7 @@ npm run setup:cursor
 npm run setup:claude
 ```
 
-*✅ OPENAI Key is optional but recommended. It allows the guide to be reviewed and digested by another LLM to create a json file of the guide instead of feeding raw guide text to your agent.*
-
-Note: If you are facing issues with the last step (adding the server), you can check out [MCP documentation](https://modelcontextprotocol.io/quickstart/user) for Claude Desktop or [Cursor Docs](https://docs.cursor.com/context/model-context-protocol) for your Cursor IDE agent
+*Note: If you are facing issues with the last step (adding the server), you can check out [MCP documentation](https://modelcontextprotocol.io/quickstart/user) for Claude Desktop or [Cursor Docs](https://docs.cursor.com/context/model-context-protocol) for your Cursor IDE agent*
 
 
 ## Cursor Rules (Recommended)
