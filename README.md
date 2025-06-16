@@ -11,7 +11,7 @@ Follow the instructions below to use it 👇
 - Clone the repo and navigate to the directory:
 
 ```bash
-git clone https://github.com/youssefea/base-builder-mcp
+git clone https://github.com/base/base-builder-mcp
 cd base-builder-mcp
 ```
 
