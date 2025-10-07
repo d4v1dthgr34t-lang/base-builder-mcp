@@ -1,15 +1,24 @@
 {
   "name": "base-builder-mcp",
   "version": "1.0.0",
-  "description": "",
+  "description": "MCP server for Base Builders - browse Base Docs and build on Base",
   "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.ts",
-    "setup:cursor": "npx tsc && node build/scripts/setup-cursor.js",
-    "setup:claude": "npx tsc && node build/scripts/setup-claude.js"
+  "bin": {
+    "base-builder-mcp": "./build/index.js",
+    "base-builder-mcp-setup": "./scripts/setup-global.js"
   },
-  "keywords": [],
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node build/index.js",
+    "setup-global": "node scripts/setup-global.js"
+  },
+  "keywords": [
+    "mcp",
+    "base",
+    "blockchain",
+    "ethereum",
+    "docs"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",

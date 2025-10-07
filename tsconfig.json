@@ -8,10 +8,17 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": false,
+    "rewriteRelativeImportExtensions": true
   },
-  "include": ["./**/*"],
-  "exclude": ["node_modules", "build"],
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"

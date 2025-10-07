@@ -12,13 +12,32 @@ out/
 # TypeScript
 *.tsbuildinfo
 
-# Environment variables
+# Environment variables and secrets
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+.env.test
+.env.staging
+
+# API Keys and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+config/secrets/
+config/keys/
+keys/
+private/
+credentials/
+auth/
+tokens/
 
 # IDE/Editor specific
-.vscode/
+.vscode/settings.json
+.vscode/mcp.json
 .idea/
 *.swp
 *.swo
@@ -27,6 +46,9 @@ out/
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Coverage directory used by tools like istanbul
 coverage/
@@ -40,3 +62,12 @@ temp/
 
 # Cursor MCP
 .cursor/mcp.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
