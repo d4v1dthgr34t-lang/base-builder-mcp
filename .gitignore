@@ -37,7 +37,6 @@ tokens/
 
 # IDE/Editor specific
 .vscode/settings.json
-.vscode/mcp.json
 .idea/
 *.swp
 *.swo

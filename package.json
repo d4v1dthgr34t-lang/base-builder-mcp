@@ -2,7 +2,7 @@
   "name": "base-builder-mcp",
   "version": "1.0.0",
   "description": "MCP server for Base Builders - browse Base Docs and build on Base",
-  "main": "index.ts",
+  "main": "./build/index.js",
   "bin": {
     "base-builder-mcp": "./build/index.js",
     "base-builder-mcp-setup": "./scripts/setup-global.js"
@@ -10,17 +10,30 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node build/index.js",
-    "setup-global": "node scripts/setup-global.js"
+    "setup-global": "node scripts/setup-global.js",
+    "test": "node build/index.js"
   },
   "keywords": [
     "mcp",
     "base",
     "blockchain",
     "ethereum",
-    "docs"
+    "docs",
+    "vscode",
+    "copilot",
+    "ai-tools",
+    "developer-tools"
   ],
-  "author": "",
+  "author": "Vegas Labs",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d4v1dthgr34t-lang/base-builder-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/d4v1dthgr34t-lang/base-builder-mcp/issues"
+  },
+  "homepage": "https://github.com/d4v1dthgr34t-lang/base-builder-mcp#readme",
   "type": "module",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",

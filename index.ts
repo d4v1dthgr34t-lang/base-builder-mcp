@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import "dotenv/config";
-import { getGuide} from "./tools.js";
 import { getGuideParams } from "./params.js";
 import { fetchAndUpdateSidebar } from "./sidebar.js";
+import { getGuide } from "./tools.js";
 
 // Initialize the server
 const server = new McpServer({

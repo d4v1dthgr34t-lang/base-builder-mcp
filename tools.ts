@@ -22,22 +22,35 @@ export const getGuide = async ({
     let finalResult = guide;
 
     if (process.env.OPENAI_API_KEY) {
-      const client = new OpenAI();
-      // Process the guide content with GPT-4
-      console.log("Processing with ChatGPT...");
-      const result = await client.responses.create({
-        model: "gpt-4o-mini",
-        input: [
-          {
-            role: "developer",
-            content:
-              "convert this guide into a structured JSON of actions, including all steps and gotchas:\n\n" +
-              guide,
-          },
-        ],
-      });
-      finalResult = result.output_text;
-      console.log("Successfully processed guide content");
+      try {
+        const client = new OpenAI({
+          apiKey: process.env.OPENAI_API_KEY,
+        });
+        // Process the guide content with GPT-4
+        console.log("Processing with ChatGPT...");
+        const result = await client.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content:
+                "You are a technical documentation assistant. Convert guides into structured JSON format with clear steps and important notes.",
+            },
+            {
+              role: "user",
+              content:
+                "Convert this guide into a structured JSON of actions, including all steps and gotchas:\n\n" +
+                guide,
+            },
+          ],
+        });
+        finalResult = result.choices[0]?.message?.content || guide;
+        console.log("Successfully processed guide content");
+      } catch (error) {
+        console.error("Error processing with OpenAI:", error);
+        // Fall back to raw guide if OpenAI processing fails
+        finalResult = guide;
+      }
     }
 
     return {

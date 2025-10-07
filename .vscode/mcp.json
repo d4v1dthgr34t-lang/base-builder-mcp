@@ -1,0 +1,29 @@
+{
+    "servers": {
+        "base-builder-mcp": {
+            "type": "stdio",
+            "command": "node",
+            "args": [
+                "${workspaceFolder}/build/index.js"
+            ],
+            "env": {
+                "OPENAI_API_KEY": "${input:openai-api-key}",
+                "COINBASE_API_KEY": "${input:coinbase-api-key}"
+            }
+        }
+    },
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "openai-api-key",
+            "description": "OpenAI API Key (optional - allows guide digestion by LLM)",
+            "password": true
+        },
+        {
+            "type": "promptString",
+            "id": "coinbase-api-key",
+            "description": "Coinbase API Key (for future Coinbase API integrations)",
+            "password": true
+        }
+    ]
+}
